@@ -4,97 +4,106 @@
 
 <h1 align="center">Jobcraft</h1>
 
-*The job search that runs on your machine — built for the Turkish market.*
+<p align="center">
+  <strong>AI-assisted job search and applications — local-first, built for Turkey.</strong>
+</p>
 
-An AI-powered job application workspace for Cursor and Claude Code. Fill in your profile, search Turkish and global job boards, score fit, tailor CVs and cover letters (LaTeX), and prepare for interviews.
+<p align="center">
+  <a href="https://github.com/batu3384">Batuhan Yüksel</a> · MIT License
+</p>
 
-> Independent project. Not affiliated with Anthropic. Claude Code and Cursor are toolchains this workflow uses.
+---
 
-## What this is
+Jobcraft is a workspace that runs on your machine. Search job boards, score fit against your profile, generate tailored CVs and cover letters (LaTeX → PDF), and track applications — without sending your data to a hosted service.
 
-```
-/setup          /scrape              /apply <url>
-  |                |                     |
-  v                v                     v
-Fill in        Search TR +           Evaluate fit
-your profile   global portals        Score & recommend
-  |                |                     |
-  v                v                     v
-Profile        Present matches      Draft CV + cover letter
-files ready    with fit ratings     (LaTeX, tailored)
-```
+## Features
+
+- **Profile onboarding** — `/setup` builds your candidate profile from documents or conversation
+- **Multi-portal search** — Kariyer.net, Yenibiriş, Eleman.net, LinkedIn Jobs
+- **Fit scoring** — `/rank` shortlists postings against your skills and goals
+- **Application pipeline** — `/apply` drafts CV + cover letter and compiles PDFs
+- **Interview prep** — `/interview` with STAR examples from your experience
+- **Application tracking** — `/outcome`, `/html-report`, `/upskill`
 
 ## Quick start
 
 ```bash
-git clone https://github.com/batu3384/jobcraft.git && cd jobcraft
+git clone https://github.com/batu3384/jobcraft.git
+cd jobcraft
 ./install.sh
 ```
 
-`./install.sh` installs Bun, portal CLIs, poppler, TinyTeX, and workspace scaffolding (idempotent).
+Open the folder in **Cursor** (Agent chat). Type `/` to see commands: `setup`, `scrape`, `rank`, `apply`, …
 
-Then open this folder in **Cursor** or **Claude Code**:
-
+```text
+/setup          # first-time profile
+/scrape         # search job boards
+/apply <url>    # tailored CV + cover letter
 ```
-/setup
-/scrape
+
+**Yenibiriş** requires a one-time browser cookie (Cloudflare):
+
+```bash
+./scripts/setup-portal-auth.sh
+./scripts/doctor.sh    # verify all four portals
 ```
 
-### Cursor: slash commands
+Install details (Turkish): [`SETUP.md`](SETUP.md) · Cookie guide: [`docs/portal-authentication.md`](docs/portal-authentication.md)
 
-In **Agent chat**, type `/` — Jobcraft lists commands from `.cursor/commands/` (`setup`, `scrape`, `apply`, `rank`, …). Each command loads the same workflow as Claude Code (thin pointer to `.claude/`).
+> Keep personal contact data in `CLAUDE.local.md` (gitignored) or `documents/`. Run `/setup` to personalize template files.
 
-Always-on routing: `.cursor/rules/jobcraft.mdc`.
+## Workflow
 
-**Yenibiriş (Cloudflare):** run `./scripts/setup-portal-auth.sh` once to set a browser cookie.  
-**Health check:** `./scripts/doctor.sh` (all four portals).
+```text
+/setup  →  /scrape  →  /rank  →  /apply  →  /interview  →  /outcome
+```
 
-Details: [`SETUP.md`](SETUP.md) (Turkish) · Cookie guide: [`docs/portal-authentication.md`](docs/portal-authentication.md)
+## Portal integrations
 
-> Repo ships **template** profile files. Run `/setup` to personalize. Keep real contact data in `CLAUDE.local.md` (gitignored) or `documents/`.
+| Skill | Board | Notes |
+|-------|--------|--------|
+| `kariyer-net-search` | kariyer.net | Primary TR board |
+| `yenibiris-search` | yenibiris.com | Cookie required |
+| `eleman-net-search` | eleman.net | JSON-LD detail |
+| `linkedin-search` | LinkedIn Jobs | `--location` filter |
 
-## Portal skills (Turkey-first)
+Default scrape order: Kariyer → Yenibiriş → Eleman → LinkedIn → web fallback.
 
-| Skill | Board |
-|-------|--------|
-| `kariyer-net-search` | kariyer.net (primary) |
-| `yenibiris-search` | yenibiris.com (requires cookie — see portal auth docs) |
-| `eleman-net-search` | eleman.net |
-| `linkedin-search` | LinkedIn Jobs (`--location`, e.g. `Istanbul, Turkey`) |
-
-Scrape priority: Kariyer → Yenibiriş → Eleman → LinkedIn → WebSearch fallback.
-
-## Main commands
+## Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/setup` | Build your candidate profile |
+| `/setup` | Build candidate profile |
 | `/scrape` | Search installed portals |
 | `/rank` | Score and shortlist |
 | `/apply` | Tailored CV + cover letter |
-| `/interview` | Interview prep |
-| `/outcome` | Track results |
-| `/upskill` | Skill-gap plan |
-| `/html-report` | Offline dashboard |
+| `/interview` | Interview preparation |
+| `/outcome` | Record application results |
+| `/upskill` | Skill-gap learning plan |
+| `/html-report` | Offline application dashboard |
 | `/add-portal` | Scaffold a new portal skill |
 | `/add-template` | Register a custom LaTeX template |
+| `/expand` | Enrich profile from documents |
+| `/reset` | Reset profile or documents |
 
 ## Documentation
 
-| Doc | Language | Contents |
-|-----|----------|----------|
-| [`SETUP.md`](SETUP.md) | Turkish | Install and first-run |
-| [`docs/portal-authentication.md`](docs/portal-authentication.md) | Turkish | Yenibiriş cookie / portal auth |
-| [`PROJE.md`](PROJE.md) | Turkish | Project status |
-| [`docs/tr-pazar-arastirmasi.md`](docs/tr-pazar-arastirmasi.md) | Turkish | Turkey market notes |
-| [`docs/uyarlama-plani.md`](docs/uyarlama-plani.md) | Turkish | Adaptation checklist |
-| [`docs/superpowers/`](docs/superpowers/) | Mixed (archived) | Do not execute — historical plans |
-| [`docs/tr-veri-konumlari.md`](docs/tr-veri-konumlari.md) | Turkish | Where personal data is stored |
-| [`docs/agent-runtimes.md`](docs/agent-runtimes.md) | English | Claude / Cursor / Codex / Antigravity |
-| [`AGENTS.md`](AGENTS.md) | English | Agent bootstrap (all runtimes) |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md) | English | PR / verification |
-| [`NOTICE`](NOTICE) | English | Upstream MIT attribution |
+| Document | Language | Topic |
+|----------|----------|--------|
+| [`SETUP.md`](SETUP.md) | Turkish | Installation and first run |
+| [`docs/portal-authentication.md`](docs/portal-authentication.md) | Turkish | Yenibiriş cookie setup |
+| [`docs/tr-veri-konumlari.md`](docs/tr-veri-konumlari.md) | Turkish | Where data is stored locally |
+| [`docs/tr-pazar-arastirmasi.md`](docs/tr-pazar-arastirmasi.md) | Turkish | Turkey job market notes |
+| [`PROJE.md`](PROJE.md) | Turkish | Project overview |
+| [`AGENTS.md`](AGENTS.md) | English | AI agent integration |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | English | Contributing guidelines |
+
+## Requirements
+
+- macOS or Linux (Windows: manual setup — see `SETUP.md`)
+- [Bun](https://bun.sh), Python 3, LaTeX (`lualatex` / `xelatex`)
+- Optional: Chrome/Brave for Yenibiriş cookie sync
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
+MIT — Copyright (c) 2026 [Batuhan Yüksel](https://github.com/batu3384). See [`LICENSE`](LICENSE).

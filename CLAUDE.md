@@ -3,7 +3,7 @@
 > **Template profile.** Run `/setup` to fill from `documents/` or your answers. Do not commit real phone/email to a public repo.
 
 ## Role
-This repo is a Jobcraft workspace. Claude acts as a career advisor and application assistant, helping with:
+This repo is a Jobcraft workspace. Your AI agent acts as a career advisor and application assistant, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)

@@ -1,6 +1,6 @@
-# Türkiye İş Pazarı — Portal Araştırması
+# Türkiye İş Pazarı — Portal Notları
 
-> Tarih: 2026-07-17 · Proje: Jobcraft · Framework 1.2.0
+> Jobcraft · 2026
 
 ## Özet
 
@@ -10,8 +10,6 @@
 | Yenibiriş | `yenibiris-search` | Aktif; Cloudflare cookie (`setup-portal-auth.sh`) |
 | Eleman.net | `eleman-net-search` | JSON-LD detail; slug + query |
 | LinkedIn | `linkedin-search` | `-l "Istanbul, Turkey"` |
-
-Kaldırılan (artık yok): Indeed, Secretcv, isbul, freehire, DK portalları.
 
 ## Öncelik sırası (`/scrape`)
 

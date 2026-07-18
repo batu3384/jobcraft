@@ -1,26 +1,25 @@
 # Jobcraft
 
-Türkiye pazarına uyarlanmış, yerel çalışan AI iş arama ve başvuru workspace’i.
+Türkiye pazarına yönelik, yerelde çalışan AI destekli iş arama ve başvuru workspace’i.
 
 | Alan | Değer |
 |------|-------|
-| Proje adı | **Jobcraft** |
+| Geliştirici | [Batuhan Yüksel](https://github.com/batu3384) |
 | Repo | https://github.com/batu3384/jobcraft |
+| Lisans | MIT |
 | Hedef pazar | Türkiye (İstanbul öncelikli; remote OK) |
-| Runtime | Cursor, Claude Code, Codex, Antigravity — bkz. `docs/agent-runtimes.md` |
-| Framework | 1.2.2 |
+| Framework | 1.3.0 |
 
-## Durum
+## Özellikler
 
-| Aşama | Durum |
-|-------|-------|
-| Upstream iz temizliği + rebrand | Tamam |
-| TR pazar araştırması | `docs/tr-pazar-arastirmasi.md` |
+| Bileşen | Durum |
+|---------|--------|
 | Tek komut kurulum | `./install.sh` |
-| Profil | Şablon (`CLAUDE.md`); kişisel veri `CLAUDE.local.md` (gitignore) |
+| Cursor slash komutları | `.cursor/commands/` |
+| Profil | `/setup` + `CLAUDE.local.md` (gitignore) |
 | Portallar (4) | Kariyer, Yenibiriş, Eleman.net, LinkedIn |
-| Cookie onboarding | `scripts/setup-portal-auth.sh` + `docs/portal-authentication.md` |
-| Salary sample | `salary_data.sample.json` (TRY) |
+| Cookie onboarding | `scripts/setup-portal-auth.sh` |
+| Başvuru PDF | LaTeX (moderncv + ön yazı şablonu) |
 | Marka | `assets/jobcraft-mark.svg` |
 
 ## Portallar
@@ -28,12 +27,14 @@ Türkiye pazarına uyarlanmış, yerel çalışan AI iş arama ve başvuru works
 | Skill | Rol |
 |-------|-----|
 | `kariyer-net-search` | Birincil TR board |
-| `yenibiris-search` | Cookie gerekir (`docs/portal-authentication.md`) |
+| `yenibiris-search` | Cookie gerekir — `docs/portal-authentication.md` |
 | `eleman-net-search` | eleman.net |
 | `linkedin-search` | `-l "Istanbul, Turkey"` |
 
 Öncelik: Kariyer → Yenibiriş → Eleman → LinkedIn → WebSearch.
 
-## Atıf
+## Dokümantasyon
 
-[`NOTICE`](NOTICE) ve [`LICENSE`](LICENSE).
+- Kurulum: [`SETUP.md`](SETUP.md)
+- Veri konumları: [`docs/tr-veri-konumlari.md`](docs/tr-veri-konumlari.md)
+- Pazar notları: [`docs/tr-pazar-arastirmasi.md`](docs/tr-pazar-arastirmasi.md)

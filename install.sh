@@ -359,8 +359,8 @@ fi
 printf '\n\033[32mKurulum tamam.\033[0m Tekrar kurulum için yine:  ./install.sh\n\n'
 cat <<'EOF'
 Şimdi:
-  1. Bu klasörü Cursor veya Claude Code ile aç
-  2. Cursor: Agent chat'te / → setup, scrape, apply …
+  1. Bu klasörü Cursor ile aç
+  2. Agent chat'te / → setup, scrape, apply …
   3. ./scripts/setup-portal-auth.sh   → Yenibiriş cookie (Cloudflare — ilk kurulum)
   4. ./scripts/doctor.sh              → 4 portal canlı kontrol
   5. /setup   → profil
@@ -372,7 +372,6 @@ Agent / yeni shell:
 
 Cookie rehberi: docs/portal-authentication.md
 Veri konumları: docs/tr-veri-konumlari.md
-Agent runtimes: docs/agent-runtimes.md
 
 Profil (PII): cp CLAUDE.local.md.example CLAUDE.local.md  # gitignored
 EOF

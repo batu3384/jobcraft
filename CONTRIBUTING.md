@@ -1,14 +1,14 @@
 # Contributing to Jobcraft
 
-Jobcraft is a Turkey-market job-application workspace (MIT). Contributions that improve the TR workflow, portal CLIs, or documentation are welcome.
+Jobcraft is an MIT-licensed job-application workspace for the Turkey market. Contributions that improve portal CLIs, workflows, or documentation are welcome.
 
-**Language:** Keep [`README.md`](README.md), [`AGENTS.md`](AGENTS.md), and this file in **English**. Keep [`SETUP.md`](SETUP.md), [`PROJE.md`](PROJE.md), and `docs/tr-*.md` / `docs/portal-*.md` in **Turkish**. Do not mix languages inside a single user-facing doc.
+**Languages:** `README.md`, `AGENTS.md`, and this file in **English**. `SETUP.md`, `PROJE.md`, and `docs/tr-*.md` / `docs/portal-*.md` in **Turkish**.
 
-**Multi-runtime:** workflow logic lives only under `.claude/`; `.cursor/commands/` must stay thin pointers (see [`docs/agent-runtimes.md`](docs/agent-runtimes.md)).
+**Architecture:** Workflow logic lives under `.claude/`. `.cursor/commands/` must stay thin pointers.
 
 ## What belongs here
 
-- Bug fixes in shared workflow commands/skills
+- Bug fixes in workflow commands and skills
 - Improvements to Turkey portal CLIs (`kariyer-net-search`, `yenibiris-search`, `eleman-net-search`, `linkedin-search`)
 - Documentation and LaTeX template fixes
 - Tests and CI hardening
@@ -17,7 +17,6 @@ Jobcraft is a Turkey-market job-application workspace (MIT). Contributions that 
 
 - Personal profile data (`CLAUDE.local.md`, filled CVs, cover letters, tracker CSVs)
 - Secrets, cookies, or scraped bulk datasets
-- Unrelated market portals without a clear Jobcraft use case
 
 ## Verification before a PR
 
@@ -31,9 +30,7 @@ for tool in linkedin-search kariyer-net-search yenibiris-search eleman-net-searc
 done
 ```
 
-Live portal hits are **not** required in CI; keep volume low for personal-use scrapers.
-
-Optional local check (needs network + Yenibiriş cookie):
+Optional local portal check (network + Yenibiriş cookie):
 
 ```bash
 ./scripts/doctor.sh
@@ -41,4 +38,4 @@ Optional local check (needs network + Yenibiriş cookie):
 
 ## License
 
-By contributing you agree your changes are MIT-licensed under [`LICENSE`](LICENSE) / [`NOTICE`](NOTICE).
+By contributing you agree your changes are MIT-licensed under [`LICENSE`](LICENSE).

@@ -2,7 +2,7 @@
 
 You are helping the user build a job-portal search skill for a job board in their market. The repo ships worked examples of the pattern (`kariyer-net-search`, `linkedin-search`), and the README invites users elsewhere to build equivalents — this command turns that invitation into a guided workflow: investigate the portal, scaffold the skill from the canonical structure, and test-run a live query before registering anything.
 
-The generator is **country-agnostic**: it works for any portal in any market and language. The skills it produces are typically market-specific and live in the user's fork (per repo policy, country-specific portal skills are not merged upstream — the generator is the upstream feature, its output is yours).
+The generator is **country-agnostic**: it works for any portal in any market and language. Generated skills are market-specific and stay in your local `.agents/skills/` folder.
 
 `$ARGUMENTS` may contain a subcommand, a portal URL, or nothing.
 
@@ -142,13 +142,13 @@ Present a summary:
 >
 > Try it: `bun run .agents/skills/<name>/cli/src/cli.ts search -q "<test query>" --format table`
 >
-> Per upstream policy, market-specific skills like this live in your fork rather than being PR'd upstream. If the portal changes its markup later, `url-reference.md` records the parsing anchors to update.
+> If the portal changes its markup later, `url-reference.md` records the parsing anchors to update.
 
 ---
 
 ## Design Principles
 
-- The generator is country-agnostic; its output is market-specific and stays in the user's fork. This matches the repo policy that upstream stays a universal template.
+- The generator is country-agnostic; its output is market-specific and lives in `.agents/skills/`.
 - Investigation before scaffolding: the command never generates parsers from guesses - Step 2 fetches real responses first, and Step 4 verifies against live data before anything is registered.
 - The portal-skill contract keeps every generated skill interchangeable with the shipped ones: same commands, same flags, same output shape, same error convention.
 - Zero runtime dependencies by default, matching `linkedin-search` - a portal skill should run on a fresh clone with nothing but `bun`.

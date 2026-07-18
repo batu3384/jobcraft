@@ -34,4 +34,4 @@ Missing tools? Run `./install.sh` then `source scripts/jobcraft-env.sh`.
 
 Portal CLIs live under `.agents/skills/*/cli/` — use each portal's `SKILL.md` for exact flags.
 
-Full runtime matrix: `docs/agent-runtimes.md`
+Full agent integration: `AGENTS.md`

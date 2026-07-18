@@ -1,19 +1,18 @@
-# Jobcraft — Türkiye Uyarlama Kontrol Listesi
+# Jobcraft — Kurulum Kontrol Listesi
 
 ## Tamamlanan
 
-- [x] Upstream marka / DK portal / Pip / Ko-fi temizliği
-- [x] Jobcraft README (EN), SETUP / PROJE / TR docs (TR), CONTRIBUTING, NOTICE
-- [x] `./install.sh` + workspace state (`seen_jobs`, salary sample)
+- [x] Jobcraft markası ve logo (`assets/`)
+- [x] README, SETUP, PROJE, CONTRIBUTING
+- [x] `./install.sh` + workspace state (`seen_jobs`, tracker, salary sample)
 - [x] Profil şablonları + `CLAUDE.local.md` (gitignore)
 - [x] Portallar: Kariyer, Yenibiriş, Eleman.net, LinkedIn
-- [x] Indeed / Secretcv / isbul / freehire / DK CLI kaldırıldı
 - [x] Yenibiriş cookie onboarding (`setup-portal-auth.sh`, `doctor.sh`)
-- [x] `salary_data.sample.json` (TRY) + fallback
-- [x] TR pazar araştırması
-- [x] Public repo: https://github.com/batu3384/jobcraft
+- [x] `salary_data.sample.json` (TRY)
+- [x] TR pazar araştırması (`docs/tr-pazar-arastirmasi.md`)
+- [x] Cursor slash komutları (`.cursor/commands/`)
 
-## İsteğe bağlı sonraki adımlar
+## İsteğe bağlı
 
 - [ ] `salary_data.json` içine gerçek TRY benchmark
 - [ ] Cookie süresi dolunca `./scripts/sync-yenibiris-cookie.sh`

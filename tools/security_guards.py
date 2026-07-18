@@ -3,7 +3,7 @@
 
 Run from anywhere: python tools/security_guards.py
 
-This repo ships pre-approved Claude Code permissions and CLI code that every
+This repo ships pre-approved agent permissions and CLI code that every
 fork user executes. These guards make the dangerous changes LOUD, not
 impossible: a PR that intentionally needs one of them must update the
 allowlists in this file in the same diff, so the change is explicit and

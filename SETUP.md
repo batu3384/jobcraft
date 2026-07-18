@@ -40,18 +40,12 @@ source scripts/jobcraft-env.sh   # agent / yeni shell
 
 ## Kullanım
 
-### Cursor
-
-1. Bu klasörü Cursor ile aç
-2. **Agent chat**'te `/` yaz → `setup`, `scrape`, `apply`, … listelenir (`.cursor/commands/`)
-3. Komut seç → agent `.claude/` içindeki asıl workflow'u çalıştırır
-
-### Claude Code
-
-Aynı workflow'lar; slash menü `.claude/commands/` altından gelir.
+1. Bu klasörü **Cursor** ile aç
+2. **Agent chat**'te `/` yaz → `setup`, `scrape`, `apply`, …
+3. Komut seç → agent ilgili workflow dosyasını çalıştırır
 
 ```
-/setup          # profil şablonunu doldur
+/setup          # profil oluştur
 /scrape         # iş ara
 /apply <url>    # CV + ön yazı
 ```

@@ -1,46 +1,53 @@
 ---
-framework_version: 1.2.2
+framework_version: 1.3.0
 ---
 
 # Agent Guidelines: Jobcraft
 
-This workspace is structured to manage job search activities, scraper tools, CVs, cover letters, and interview preparation.
+This workspace manages job search, portal CLIs, CVs, cover letters, and interview preparation.
 
-## Bootstrap (one command)
+## Bootstrap
 
-If `bun`, `lualatex`, `xelatex`, or portal CLIs are missing, run from the repo root — do not ask the user to install tools piecemeal:
+If `bun`, `lualatex`, `xelatex`, or portal CLIs are missing, run from the repo root:
 
 ```bash
 ./install.sh
 source scripts/jobcraft-env.sh   # non-login / agent shells
 ```
 
-**Yenibiriş cookie missing?** Direct the user to `./scripts/setup-portal-auth.sh` and [`docs/portal-authentication.md`](docs/portal-authentication.md). Do not ask them to paste cookies into chat.
+**Yenibiriş cookie:** `./scripts/setup-portal-auth.sh` — see [`docs/portal-authentication.md`](docs/portal-authentication.md). Never ask the user to paste cookies in chat.
 
-**Portal health:** `./scripts/doctor.sh` — live check for all four portals.
+**Portal health:** `./scripts/doctor.sh`
 
-**Doc languages:** User-facing product docs: English (`README.md`, this file, `CONTRIBUTING.md`). Install / Turkey market docs: Turkish (`SETUP.md`, `PROJE.md`, `docs/portal-authentication.md`, `docs/tr-*.md`). Do not mix languages in one file.
+## Documentation languages
 
-## Thin-Pointer Design (Single Source of Truth)
+- English: `README.md`, this file, `CONTRIBUTING.md`
+- Turkish: `SETUP.md`, `PROJE.md`, `docs/portal-authentication.md`, `docs/tr-*.md`
 
-To prevent duplication and configuration drift across different AI agent frameworks (Claude Code, Google Antigravity, Codex, Cursor, Gemini CLI, etc.), this workspace uses a unified thin-pointer design. All agent runtimes should load the canonical specifications and candidate profiles from the files and directories below:
+## Workspace layout
 
-1. **Personal Candidate Profile:**
-   - Template: [CLAUDE.md](CLAUDE.md) and [.claude/skills/job-application-assistant/](.claude/skills/job-application-assistant/) (`01-*.md` etc.).
-   - **Local override (gitignored):** if [CLAUDE.local.md](CLAUDE.local.md) exists, use it for real name, contact, and experience — never commit it.
-2. **Canonical Workflow Specifications:**
-   - The step-by-step instructions and triggers for tasks (setup, scrape, rank, apply, upskill, interview) are defined in the [.claude/](.claude/) directory (specifically under `.claude/skills/` and `.claude/commands/`).
-   - Do not duplicate these rules or specifications. Treat `.claude/` files as the single source of truth.
-3. **Portal Search Skills:**
-   - Job-portal search CLIs live under [.agents/skills/](.agents/skills/) in the portable Agent Skills format (with a `SKILL.md` per portal). Codex and Antigravity discover these automatically; the `/scrape` workflow in [.claude/skills/job-scraper/](.claude/skills/job-scraper/) orchestrates them.
+| Path | Purpose |
+|------|---------|
+| `.claude/commands/` | Workflow specs (`setup`, `scrape`, `apply`, …) |
+| `.claude/skills/` | Long-running skills (job-scraper, application assistant, upskill) |
+| `.cursor/commands/` | Cursor slash commands (thin pointers to `.claude/`) |
+| `.cursor/rules/jobcraft.mdc` | Always-on routing for Cursor Agent |
+| `.agents/skills/` | Portal search CLIs (portable Agent Skills format) |
+| `CLAUDE.local.md` | Personal profile override (gitignored) |
 
-## Agent runtimes (Claude, Cursor, Codex, Antigravity)
+## Profile source of truth
 
-| Runtime | How it loads Jobcraft |
-|---------|------------------------|
-| **Claude Code** | `CLAUDE.md` + `.claude/commands/` slash menu + `.claude/skills/` |
-| **Cursor** | `.cursor/rules/jobcraft.mdc` + **`.cursor/commands/`** slash menu → thin pointers to `.claude/` |
-| **OpenAI Codex** | `AGENTS.md` (this file) + `.agents/skills/` |
-| **Google Antigravity** | `AGENTS.md` + `.agents/skills/` auto-discovery |
+1. `CLAUDE.local.md` if it exists (real name, contact, experience)
+2. Else `CLAUDE.md` and `.claude/skills/job-application-assistant/01-*.md` (templates until `/setup`)
 
-Details: [docs/agent-runtimes.md](docs/agent-runtimes.md)
+Do not duplicate workflow logic across runtimes — extend `.claude/commands/` or `.claude/skills/` only.
+
+## Cursor
+
+1. Open this folder in Cursor
+2. Agent chat → `/` lists commands from `.cursor/commands/`
+3. Each command reads the matching file under `.claude/`
+
+## Other AI agents
+
+Any agent that reads `AGENTS.md` and `.agents/skills/` can run portal CLIs. For full workflows (`/apply`, `/scrape`), open the corresponding `.claude/commands/*.md` or `.claude/skills/*/SKILL.md`.
