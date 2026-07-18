@@ -1,0 +1,30 @@
+<!-- fixture: yenibiris.com detail page with JSON-LD JobPosting -->
+<html><head>
+<meta property="og:title" content="Yazılım Geliştirici İş İlanı - Acme Teknoloji" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "JobPosting",
+  "title": "Yazılım Geliştirici",
+  "description": "<p>Python ve TypeScript ile web uygulamaları geliştirecek geliştirici aranmaktadır.</p><ul><li>REST API</li><li>PostgreSQL</li></ul>",
+  "datePosted": "2026-07-10",
+  "employmentType": "FULL_TIME",
+  "hiringOrganization": {
+    "@type": "Organization",
+    "name": "Acme Teknoloji A.Ş."
+  },
+  "jobLocation": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kadıköy",
+      "addressRegion": "İstanbul",
+      "addressCountry": "TR"
+    }
+  }
+}
+</script>
+</head><body>
+<h1>Nav noise should not win</h1>
+<div class="job-description"><p>Fallback description block</p></div>
+</body></html>

@@ -1,0 +1,37 @@
+---
+description: Jobcraft workflows — bootstrap, profile, portals, slash-command routing
+alwaysApply: true
+---
+
+# Jobcraft (Cursor)
+
+This repo is a **Jobcraft** workspace (Turkey-first job search + LaTeX applications).
+
+## Bootstrap
+
+Missing tools? Run `./install.sh` then `source scripts/jobcraft-env.sh`.
+
+- Yenibiriş cookie: `./scripts/setup-portal-auth.sh` — never ask the user to paste cookies in chat
+- Portal health: `./scripts/doctor.sh`
+
+## Profile source of truth
+
+1. `CLAUDE.local.md` (gitignored) if it exists — real name, contact, experience
+2. Else `.claude/skills/job-application-assistant/01-*.md` and `CLAUDE.md` (templates until `/setup`)
+
+## Workflows (do not duplicate — read the canonical file)
+
+| User says | Read and follow |
+|-----------|-----------------|
+| `/setup`, setup, profil | `.claude/commands/setup.md` |
+| `/scrape`, iş ara, job search | `.claude/commands/scrape.md` → `.claude/skills/job-scraper/SKILL.md` |
+| `/rank`, shortlist | `.claude/commands/rank.md` |
+| `/apply`, başvuru, CV for job | `.claude/commands/apply.md` |
+| `/interview` | `.claude/commands/interview.md` |
+| `/outcome` | `.claude/commands/outcome.md` |
+| `/upskill` | `.claude/skills/upskill/SKILL.md` |
+| `/html-report` | `.claude/commands/html-report.md` |
+
+Portal CLIs live under `.agents/skills/*/cli/` — use each portal's `SKILL.md` for exact flags.
+
+Full runtime matrix: `docs/agent-runtimes.md`

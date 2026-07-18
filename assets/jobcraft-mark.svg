@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Jobcraft">
+  <rect width="512" height="512" rx="112" fill="#0B1220"/>
+  <!-- Geometric capital J — single continuous mass -->
+  <path
+    fill="#F8FAFC"
+    d="
+      M 196 128
+      H 340
+      C 354 128 364 138 364 152
+      V 176
+      C 364 190 354 200 340 200
+      H 300
+      V 328
+      C 300 384 262 424 204 424
+      C 172 424 148 410 134 386
+      C 126 374 130 358 142 350
+      C 154 342 170 346 178 358
+      C 184 368 192 376 204 376
+      C 234 376 252 354 252 328
+      V 200
+      H 196
+      C 182 200 172 190 172 176
+      V 152
+      C 172 138 182 128 196 128
+      Z
+    "
+  />
+  <!-- Craft gem — sits on the hook terminal -->
+  <rect
+    x="122"
+    y="350"
+    width="32"
+    height="32"
+    rx="5"
+    fill="#E8A317"
+    transform="rotate(45 138 366)"
+  />
+</svg>

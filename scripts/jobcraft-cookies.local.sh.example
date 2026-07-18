@@ -1,0 +1,15 @@
+# Copy to jobcraft-cookies.local.sh (install.sh does this automatically).
+# Never commit jobcraft-cookies.local.sh — it is gitignored.
+#
+# Recommended (Chrome / Brave / Arc / Edge):
+#   1. Open https://www.yenibiris.com/is-ilanlari and pass Cloudflare
+#   2. ./scripts/sync-yenibiris-cookie.sh
+#
+# Manual (Safari / Firefox):
+#   DevTools → Application → Cookies → yenibiris.com
+#   Paste as one line below. Include cf_clearance when present.
+#
+# Test: ./scripts/test-yenibiris-cookie.sh
+# Guide: docs/portal-authentication.md
+
+export YENIBIRIS_COOKIE='cf_clearance=PASTE; __cf_bm=PASTE'

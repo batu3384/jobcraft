@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "source": "Jobcraft sample — synthetic TRY indices for Istanbul junior tech market",
+    "sample": true,
+    "currency": "TRY",
+    "index_label": "Relative salary index (100 = sample baseline)",
+    "baseline": 100,
+    "notes": "Copy to salary_data.json and replace with real benchmarks. Not official statistics."
+  },
+  "companies": [
+    {
+      "company": "Trendyol",
+      "city": "İstanbul",
+      "categories": {
+        "overall": 118,
+        "software": 122
+      }
+    },
+    {
+      "company": "Getir",
+      "city": "İstanbul",
+      "categories": {
+        "overall": 112,
+        "software": 115
+      }
+    },
+    {
+      "company": "Hepsiburada",
+      "city": "İstanbul",
+      "categories": {
+        "overall": 110,
+        "software": 114
+      }
+    },
+    {
+      "company": "Sahibinden",
+      "city": "İstanbul",
+      "categories": {
+        "overall": 108,
+        "software": 111
+      }
+    },
+    {
+      "company": "Turkcell",
+      "city": "İstanbul",
+      "categories": {
+        "overall": 105,
+        "software": 108
+      }
+    },
+    {
+      "company": "Softtech",
+      "city": "İstanbul",
+      "categories": {
+        "overall": 107,
+        "software": 110
+      }
+    }
+  ]
+}
