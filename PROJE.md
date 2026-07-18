@@ -8,7 +8,7 @@ Türkiye pazarına yönelik, yerelde çalışan AI destekli iş arama ve başvur
 | Repo | https://github.com/batu3384/jobcraft |
 | Lisans | MIT |
 | Hedef pazar | Türkiye (İstanbul öncelikli; remote OK) |
-| Framework | 1.3.0 |
+| Framework | 1.3.1 |
 
 ## Özellikler
 
