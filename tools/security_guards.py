@@ -10,7 +10,7 @@ allowlists in this file in the same diff, so the change is explicit and
 reviewable rather than buried.
 
 Checks:
-1. .claude/settings.json — every permissions.allow entry must be in the exact
+1. .jobcraft/settings.json — every permissions.allow entry must be in the exact
    allowlist below. Catches permission widening (e.g. Bash(*), Bash(curl:*)),
    which would auto-approve commands on every fork.
 2. .gitignore — the personal-data ignore rules must all still be present.
@@ -44,7 +44,7 @@ ALLOWED_PERMISSIONS = {
 REQUIRED_IGNORE_RULES = [
     "scripts/jobcraft-cookies.local.sh",
     "scripts/jobcraft-env.sh",
-    "CLAUDE.local.md",
+    "profile.local.md",
     "salary_data.json",
     "job_scraper/seen_jobs.json",
     "cv/main_*.tex",
@@ -62,27 +62,27 @@ FORBIDDEN_SCRIPTS = {"preinstall", "install", "postinstall", "prepare", "prepack
 
 
 def check_permissions() -> None:
-    path = ROOT / ".claude" / "settings.json"
+    path = ROOT / ".jobcraft" / "settings.json"
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        errors.append(f".claude/settings.json: unreadable or invalid JSON: {exc}")
+        errors.append(f".jobcraft/settings.json: unreadable or invalid JSON: {exc}")
         return
     if not isinstance(data, dict):
-        errors.append(".claude/settings.json: top-level JSON value must be an object")
+        errors.append(".jobcraft/settings.json: top-level JSON value must be an object")
         return
     permissions = data.get("permissions", {})
     if not isinstance(permissions, dict):
-        errors.append(".claude/settings.json: permissions must be an object")
+        errors.append(".jobcraft/settings.json: permissions must be an object")
         return
     allow = permissions.get("allow", [])
     if not isinstance(allow, list) or not all(isinstance(entry, str) for entry in allow):
-        errors.append(".claude/settings.json: permissions.allow must be a list of strings")
+        errors.append(".jobcraft/settings.json: permissions.allow must be a list of strings")
         return
     for entry in allow:
         if entry not in ALLOWED_PERMISSIONS:
             errors.append(
-                f".claude/settings.json: permission not in the reviewed allowlist: {entry!r}. "
+                f".jobcraft/settings.json: permission not in the reviewed allowlist: {entry!r}. "
                 "Pre-approved permissions run without prompting on every fork. If this entry is "
                 "intentional, add it to ALLOWED_PERMISSIONS in tools/security_guards.py in the "
                 "same PR so the widening is explicit and reviewable."

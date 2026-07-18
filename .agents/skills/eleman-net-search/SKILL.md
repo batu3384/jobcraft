@@ -6,7 +6,7 @@ description: >
   find iş ilanları, open positions in Istanbul/Ankara/Izmir/Bursa/Antalya/Kocaeli,
   or look up an eleman.net posting. Trigger phrases: eleman.net, eleman net,
   iş ilanı, iş arama, açık pozisyon, İstanbul'da iş, yazılım mühendisi ilanı.
-context: fork
+context: jobcraft
 enabled: true
 allowed-tools: Bash(bun run .agents/skills/eleman-net-search/cli/src/cli.ts *)
 ---

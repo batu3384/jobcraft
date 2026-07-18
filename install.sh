@@ -373,5 +373,5 @@ Agent / yeni shell:
 Cookie rehberi: docs/portal-authentication.md
 Veri konumları: docs/tr-veri-konumlari.md
 
-Profil (PII): cp CLAUDE.local.md.example CLAUDE.local.md  # gitignored
+Profil (PII): cp profile.local.md.example profile.local.md  # gitignored
 EOF

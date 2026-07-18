@@ -23,7 +23,7 @@ venv/
 *.fdb_latexmk
 
 # Personal data (never commit these)
-CLAUDE.local.md
+profile.local.md
 salary_data.json
 job_scraper/seen_jobs.json
 job_scraper/*.md
@@ -44,8 +44,8 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Memory files (Claude Code user-specific)
-.claude/projects/
+# Memory files (AI agents user-specific)
+.jobcraft/projects/
 
 # Skills lock (auto-generated)
 skills-lock.json
@@ -81,5 +81,5 @@ upskill/*.md
 .agents/**/*.log
 .agents/usage/
 
-# Brainstorm mockups (superpowers visual companion) - never ship
+# Brainstorm mockups — never ship
 .superpowers/

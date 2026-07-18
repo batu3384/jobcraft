@@ -16,7 +16,7 @@ Türkiye pazarına yönelik, yerelde çalışan AI destekli iş arama ve başvur
 |---------|--------|
 | Tek komut kurulum | `./install.sh` |
 | Cursor slash komutları | `.cursor/commands/` |
-| Profil | `/setup` + `CLAUDE.local.md` (gitignore) |
+| Profil | `/setup` + `profile.local.md` (gitignore) |
 | Portallar (4) | Kariyer, Yenibiriş, Eleman.net, LinkedIn |
 | Cookie onboarding | `scripts/setup-portal-auth.sh` |
 | Başvuru PDF | LaTeX (moderncv + ön yazı şablonu) |

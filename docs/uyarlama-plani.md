@@ -5,7 +5,7 @@
 - [x] Jobcraft markası ve logo (`assets/`)
 - [x] README, SETUP, PROJE, CONTRIBUTING
 - [x] `./install.sh` + workspace state (`seen_jobs`, tracker, salary sample)
-- [x] Profil şablonları + `CLAUDE.local.md` (gitignore)
+- [x] Profil şablonları + `profile.local.md` (gitignore)
 - [x] Portallar: Kariyer, Yenibiriş, Eleman.net, LinkedIn
 - [x] Yenibiriş cookie onboarding (`setup-portal-auth.sh`, `doctor.sh`)
 - [x] `salary_data.sample.json` (TRY)

@@ -28,26 +28,26 @@ source scripts/jobcraft-env.sh   # non-login / agent shells
 
 | Path | Purpose |
 |------|---------|
-| `.claude/commands/` | Workflow specs (`setup`, `scrape`, `apply`, …) |
-| `.claude/skills/` | Long-running skills (job-scraper, application assistant, upskill) |
-| `.cursor/commands/` | Cursor slash commands (thin pointers to `.claude/`) |
+| `.jobcraft/commands/` | Workflow specs (`setup`, `scrape`, `apply`, …) |
+| `.jobcraft/skills/` | Long-running skills (job-scraper, application assistant, upskill) |
+| `.cursor/commands/` | Cursor slash commands (thin pointers to `.jobcraft/`) |
 | `.cursor/rules/jobcraft.mdc` | Always-on routing for Cursor Agent |
 | `.agents/skills/` | Portal search CLIs (portable Agent Skills format) |
-| `CLAUDE.local.md` | Personal profile override (gitignored) |
+| `profile.local.md` | Personal profile override (gitignored) |
 
 ## Profile source of truth
 
-1. `CLAUDE.local.md` if it exists (real name, contact, experience)
-2. Else `CLAUDE.md` and `.claude/skills/job-application-assistant/01-*.md` (templates until `/setup`)
+1. `profile.local.md` if it exists (real name, contact, experience)
+2. Else `PROFILE.md` and `.jobcraft/skills/job-application-assistant/01-*.md` (templates until `/setup`)
 
-Do not duplicate workflow logic across runtimes — extend `.claude/commands/` or `.claude/skills/` only.
+Do not duplicate workflow logic across runtimes — extend `.jobcraft/commands/` or `.jobcraft/skills/` only.
 
 ## Cursor
 
 1. Open this folder in Cursor
 2. Agent chat → `/` lists commands from `.cursor/commands/`
-3. Each command reads the matching file under `.claude/`
+3. Each command reads the matching file under `.jobcraft/`
 
 ## Other AI agents
 
-Any agent that reads `AGENTS.md` and `.agents/skills/` can run portal CLIs. For full workflows (`/apply`, `/scrape`), open the corresponding `.claude/commands/*.md` or `.claude/skills/*/SKILL.md`.
+Any agent that reads `AGENTS.md` and `.agents/skills/` can run portal CLIs. For full workflows (`/apply`, `/scrape`), open the corresponding `.jobcraft/commands/*.md` or `.jobcraft/skills/*/SKILL.md`.

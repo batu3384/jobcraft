@@ -36,7 +36,7 @@ class GuardRepoFixture(unittest.TestCase):
         (self.root / "tools").mkdir()
         shutil.copy(GUARD_SCRIPT, self.root / "tools" / "security_guards.py")
 
-        self.settings = self.root / ".claude" / "settings.json"
+        self.settings = self.root / ".jobcraft" / "settings.json"
         self.settings.parent.mkdir()
         self.write_settings(sorted(security_guards.ALLOWED_PERMISSIONS))
 

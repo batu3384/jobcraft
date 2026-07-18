@@ -50,7 +50,7 @@ Open the folder in **Cursor** (Agent chat). Type `/` to see commands: `setup`, `
 
 Install details (Turkish): [`SETUP.md`](SETUP.md) · Cookie guide: [`docs/portal-authentication.md`](docs/portal-authentication.md)
 
-> Keep personal contact data in `CLAUDE.local.md` (gitignored) or `documents/`. Run `/setup` to personalize template files.
+> Keep personal contact data in `profile.local.md` (gitignored) or `documents/`. Run `/setup` to personalize template files.
 
 ## Workflow
 
@@ -95,7 +95,8 @@ Default scrape order: Kariyer → Yenibiriş → Eleman → LinkedIn → web fal
 | [`docs/tr-veri-konumlari.md`](docs/tr-veri-konumlari.md) | Turkish | Where data is stored locally |
 | [`docs/tr-pazar-arastirmasi.md`](docs/tr-pazar-arastirmasi.md) | Turkish | Turkey job market notes |
 | [`PROJE.md`](PROJE.md) | Turkish | Project overview |
-| [`AGENTS.md`](AGENTS.md) | English | AI agent integration |
+| [`AGENTS.md`](AGENTS.md) | English | Workspace layout and agent integration |
+| [`PROFILE.md`](PROFILE.md) | English | Candidate profile template |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | English | Contributing guidelines |
 
 ## Requirements

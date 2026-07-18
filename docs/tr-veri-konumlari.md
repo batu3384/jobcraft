@@ -6,8 +6,8 @@ Jobcraft **tüm kişisel veriyi repo kökünde, yerel dosyalarda** tutar. Sunucu
 
 | Veri | Dosya / klasör | Git | Kim yazar? |
 |------|------------------|-----|------------|
-| Ana profil (PII) | `CLAUDE.local.md` | **Hayır** (gitignore) | Sen veya `/setup` |
-| Yapılandırılmış profil | `.claude/skills/job-application-assistant/01-*.md` | Evet (şablon); `/setup` sonrası **commit etme** | `/setup` |
+| Ana profil (PII) | `profile.local.md` | **Hayır** (gitignore) | Sen veya `/setup` |
+| Yapılandırılmış profil | `.jobcraft/skills/job-application-assistant/01-*.md` | Evet (şablon); `/setup` sonrası **commit etme** | `/setup` |
 | Portal cookie | `scripts/jobcraft-cookies.local.sh` | **Hayır** | `setup-portal-auth.sh` |
 | Shell PATH | `scripts/jobcraft-env.sh` | **Hayır** | `./install.sh` |
 | Taranan ilanlar | `job_scraper/seen_jobs.json` | **Hayır** | `/scrape`, `/rank` |
@@ -24,7 +24,7 @@ Jobcraft **tüm kişisel veriyi repo kökünde, yerel dosyalarda** tutar. Sunucu
 ## Akış diyagramı
 
 ```
-documents/          →  /setup  →  CLAUDE.local.md + 01-07 profil dosyaları
+documents/          →  /setup  →  profile.local.md + 01-07 profil dosyaları
                               ↓
 /scrape             →  job_scraper/seen_jobs.json
 /rank               →  seen_jobs.json (ranked/expired bayrakları)
@@ -37,9 +37,9 @@ documents/          →  /setup  →  CLAUDE.local.md + 01-07 profil dosyaları
 
 ## Klasör detayları
 
-### `CLAUDE.local.md` (repo kökü)
+### `profile.local.md` (repo kökü)
 
-Gerçek ad, telefon, e-posta, deneyim. Agent’lar varsa **önce bunu** okur. Şablon: `CLAUDE.local.md.example`.
+Gerçek ad, telefon, e-posta, deneyim. Agent’lar varsa **önce bunu** okur. Şablon: `profile.local.md.example`.
 
 ### `job_scraper/seen_jobs.json`
 
@@ -89,7 +89,7 @@ Yenibiriş Cloudflare cookie’si. **Asla commit etme.** Kurulum: `./scripts/set
 Tüm değerli veri şu dosyalarda:
 
 ```
-CLAUDE.local.md
+profile.local.md
 job_scraper/seen_jobs.json
 job_search_tracker.csv
 salary_data.json

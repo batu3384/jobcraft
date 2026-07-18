@@ -4,7 +4,7 @@ Jobcraft is an MIT-licensed job-application workspace for the Turkey market. Con
 
 **Languages:** `README.md`, `AGENTS.md`, and this file in **English**. `SETUP.md`, `PROJE.md`, and `docs/tr-*.md` / `docs/portal-*.md` in **Turkish**.
 
-**Architecture:** Workflow logic lives under `.claude/`. `.cursor/commands/` must stay thin pointers.
+**Architecture:** Workflow logic lives under `.jobcraft/`. `.cursor/commands/` must stay thin pointers.
 
 ## What belongs here
 
@@ -15,7 +15,7 @@ Jobcraft is an MIT-licensed job-application workspace for the Turkey market. Con
 
 ## What does not
 
-- Personal profile data (`CLAUDE.local.md`, filled CVs, cover letters, tracker CSVs)
+- Personal profile data (`profile.local.md`, filled CVs, cover letters, tracker CSVs)
 - Secrets, cookies, or scraped bulk datasets
 
 ## Verification before a PR

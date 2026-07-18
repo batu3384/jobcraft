@@ -4,12 +4,12 @@
 Run from anywhere: python tools/lint_skills.py
 
 Checks:
-- Every SKILL.md (.claude/skills/*, .agents/skills/*) has YAML frontmatter that
+- Every SKILL.md (.jobcraft/skills/*, .agents/skills/*) has YAML frontmatter that
   parses, with non-empty `name` and `description` keys
 - `allowed-tools` entries of the form `Bash(bun run <path> *)` point at files
   that exist (skill paths resolve relative to the repo root and to .agents/)
-- Every .claude/commands/*.md starts with a `# /<name>` title
-- .claude/settings.json is valid JSON with a permissions.allow list
+- Every .jobcraft/commands/*.md starts with a `# /<name>` title
+- .jobcraft/settings.json is valid JSON with a permissions.allow list
 
 Exit code 0 on success, 1 with a failure list otherwise.
 """
@@ -78,30 +78,30 @@ def check_command(path: Path) -> None:
 
 
 def check_settings() -> None:
-    path = ROOT / ".claude" / "settings.json"
+    path = ROOT / ".jobcraft" / "settings.json"
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        errors.append(f".claude/settings.json: {exc}")
+        errors.append(f".jobcraft/settings.json: {exc}")
         return
     if not isinstance(data, dict):
-        errors.append(".claude/settings.json: expected top-level JSON value to be an object")
+        errors.append(".jobcraft/settings.json: expected top-level JSON value to be an object")
         return
     permissions = data.get("permissions", {})
     if not isinstance(permissions, dict):
-        errors.append(".claude/settings.json: expected permissions to be an object")
+        errors.append(".jobcraft/settings.json: expected permissions to be an object")
         return
     if not isinstance(permissions.get("allow"), list):
-        errors.append(".claude/settings.json: expected permissions.allow to be a list")
+        errors.append(".jobcraft/settings.json: expected permissions.allow to be a list")
 
 
 def main() -> int:
-    skills = sorted(ROOT.glob(".claude/skills/*/SKILL.md")) + sorted(ROOT.glob(".agents/skills/*/SKILL.md"))
-    commands = sorted((ROOT / ".claude" / "commands").glob("*.md"))
+    skills = sorted(ROOT.glob(".jobcraft/skills/*/SKILL.md")) + sorted(ROOT.glob(".agents/skills/*/SKILL.md"))
+    commands = sorted((ROOT / ".jobcraft" / "commands").glob("*.md"))
     if not skills:
         errors.append("no SKILL.md files found - glob roots are wrong or the tree moved")
     if not commands:
-        errors.append("no command files found under .claude/commands/")
+        errors.append("no command files found under .jobcraft/commands/")
 
     for skill in skills:
         check_skill(skill)

@@ -2,11 +2,11 @@
 
 Run the Jobcraft **outcome** workflow in this repo.
 
-Read and follow **exactly**: `.claude/commands/outcome.md`
+Read and follow **exactly**: `.jobcraft/commands/outcome.md`
 
 **Bootstrap:** if `bun` or LaTeX tools are missing, run `./install.sh` then `source scripts/jobcraft-env.sh`.
 
-**Profile:** if `CLAUDE.local.md` exists, prefer it over placeholder templates in `CLAUDE.md` / `01-candidate-profile.md`.
+**Profile:** prefer `profile.local.md`, then `PROFILE.md` and `01-candidate-profile.md`.
 
 **Yenibiriş:** never ask for cookies in chat — use `./scripts/setup-portal-auth.sh`.
 

@@ -6,7 +6,7 @@ description: >
   find iş ilanları, open positions in Istanbul/Ankara/Izmir, or look up a
   kariyer.net posting. Trigger phrases: kariyer.net, kariyer net, iş ilanı,
   iş arama, açık pozisyon, İstanbul'da iş, Ankara iş ilanı, yazılım mühendisi ilanı.
-context: fork
+context: jobcraft
 enabled: true
 allowed-tools: Bash(bun run .agents/skills/kariyer-net-search/cli/src/cli.ts *)
 ---

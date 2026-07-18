@@ -50,14 +50,14 @@ source scripts/jobcraft-env.sh   # agent / yeni shell
 /apply <url>    # CV + ön yazı
 ```
 
-Repo’daki `CLAUDE.md` ve `01`–`07` dosyaları **şablondur**. Kişisel iletişim bilgisi için:
+Repo’daki `PROFILE.md` ve `01`–`07` dosyaları **şablondur**. Kişisel iletişim bilgisi için:
 
 ```bash
-cp CLAUDE.local.md.example CLAUDE.local.md
+cp profile.local.md.example profile.local.md
 # düzenle — gitignore’da, commit etme
 ```
 
-Agent, varsa `CLAUDE.local.md` içeriğini şablona tercih eder.
+Agent, varsa `profile.local.md` içeriğini şablona tercih eder.
 
 ## Portal cookie (Yenibiriş)
 

@@ -37,18 +37,18 @@ class LinterRepoFixture(unittest.TestCase):
             encoding="utf-8",
         )
 
-        command = self.root / ".claude" / "commands" / "setup.md"
+        command = self.root / ".jobcraft" / "commands" / "setup.md"
         command.parent.mkdir(parents=True)
         command.write_text("# /setup - Test setup command\n", encoding="utf-8")
 
-        skill = self.root / ".claude" / "skills" / "example" / "SKILL.md"
+        skill = self.root / ".jobcraft" / "skills" / "example" / "SKILL.md"
         skill.parent.mkdir(parents=True)
         skill.write_text(
             "---\nname: example\ndescription: Example skill\n---\n",
             encoding="utf-8",
         )
 
-        self.settings = self.root / ".claude" / "settings.json"
+        self.settings = self.root / ".jobcraft" / "settings.json"
         self.write_settings({"permissions": {"allow": []}})
 
     def write_settings(self, data):
@@ -68,7 +68,7 @@ class SettingsShapeTests(LinterRepoFixture):
         result = run_linter(self.root)
 
         self.assertEqual(result.returncode, 1)
-        self.assertIn(".claude/settings.json", result.stdout)
+        self.assertIn(".jobcraft/settings.json", result.stdout)
         self.assertNotIn("Traceback", result.stderr)
 
     def test_non_object_root_fails_cleanly(self):

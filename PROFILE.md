@@ -1,14 +1,10 @@
-# Job Application Assistant for [Your Name]
+# Jobcraft — Candidate Profile
 
-> **Template profile.** Run `/setup` to fill from `documents/` or your answers. Do not commit real phone/email to a public repo.
+> Template file. Run `/setup` to personalize. Keep real contact data in `profile.local.md` (gitignored).
 
-## Role
-This repo is a Jobcraft workspace. Your AI agent acts as a career advisor and application assistant, helping with:
-1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
-2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
-3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
-4. **Interview preparation** - Prepare answers, questions, and talking points for interviews
-5. **Career strategy** - Advise on positioning and personal branding
+## What Jobcraft does with this file
+
+Your AI agent reads this profile to evaluate jobs, tailor CVs, write cover letters, and prepare interviews. All facts used in applications must come from this file, `profile.local.md`, or `documents/`.
 
 ## Candidate Profile
 
@@ -44,8 +40,10 @@ This repo is a Jobcraft workspace. Your AI agent acts as a career advisor and ap
 - **Markets:** Turkey (Istanbul); remote
 - **Portals:** Kariyer.net, Yenibiriş, Eleman.net, LinkedIn — Yenibiriş cookie: `./scripts/setup-portal-auth.sh`
 
-## Verification Checklist
-Before presenting any application materials, verify:
+## Verification checklist
+
+Before presenting application materials:
+
 - [ ] All facts exist in this profile or `documents/`
 - [ ] No invented employers, degrees, or skills
 - [ ] Language matches the posting (TR/EN)

@@ -6,7 +6,7 @@ description: >
   find iş ilanları, open positions in Istanbul/Ankara/Izmir/Bursa/Antalya/Kocaeli,
   or look up a yenibiris.com posting. Trigger phrases: yenibiris, yenibiris.com,
   iş ilanı, iş arama, açık pozisyon, İstanbul'da iş, yazılım geliştirici ilanı.
-context: fork
+context: jobcraft
 enabled: true  # Cloudflare: cookie via scripts/sync-yenibiris-cookie.sh + curl_cffi fetch
 allowed-tools: Bash(bun run .agents/skills/yenibiris-search/cli/src/cli.ts *)
 ---

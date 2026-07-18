@@ -1,0 +1,30 @@
+# Personal profile override — copy to profile.local.md (gitignored, never commit).
+
+# Jobcraft — [Your Full Name]
+
+## Candidate Profile
+
+### Identity
+- **Name:** [Your Full Name]
+- **Location:** [City, Country]
+- **Contact:** [phone] · [email] · linkedin.com/in/[handle] · github.com/[handle]
+- **Languages:** [Native], [English level]
+- **Status:** [Career stage / target roles]
+
+### Education
+- [Degree] ([years]) — [University], [City]
+
+### Professional Experience
+- **[Role]** ([dates]) — **[Employer]**, [location]
+  - [Achievement bullet]
+
+### Technical Skills
+- **Primary:** [stack]
+- **Secondary:** [tools]
+
+### Projects
+- **[Project]** — [description + stack]
+
+### Target Preferences
+- **Roles:** [target roles]
+- **Markets:** [locations]

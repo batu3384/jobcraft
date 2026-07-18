@@ -9,7 +9,7 @@ description: >
   Trigger phrases: find a job, job search, search for jobs, job openings, vacancies,
   hiring, positions open, remote jobs, iş ilanı, "are there any X jobs in <place>",
   look up this job posting.
-context: fork
+context: jobcraft
 enabled: true  # set to false to keep this portal installed but have /scrape skip it
 allowed-tools: Bash(bun run .agents/skills/linkedin-search/cli/src/cli.ts *)
 ---
@@ -18,11 +18,9 @@ allowed-tools: Bash(bun run .agents/skills/linkedin-search/cli/src/cli.ts *)
 
 Search live job listings from LinkedIn's public job board for **any country/region**
 (and remote). No authentication, no API key, and **zero runtime dependencies** — it runs
-with just `bun`. The location is always passed explicitly, so the same skill works for a
-forker in any market out of the box.
+with just `bun`. Pass any location via `--location` — the same skill works in any market.
 
-> This is a country-agnostic worked example of the repo's job-portal-skill pattern.
-> LinkedIn's `jobs-guest` endpoints are global and the HTML parsing is country-independent;
+> Jobcraft portal skill pattern. LinkedIn `jobs-guest` endpoints are global;
 > only the `--location` you pass changes per market.
 
 ## ⚠️ Personal use only
